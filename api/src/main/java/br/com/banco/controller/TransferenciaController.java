@@ -24,10 +24,10 @@ public class TransferenciaController {
             @RequestParam(required = false) String nomeOperador
     ) {
 
-        if (dataInicial != null && dataFinal != null && nomeOperador != null) {
-            return transferenciaService.listarComFiltro(dataInicial, dataFinal, nomeOperador);
-        } else {
+        if (dataInicial == null && dataFinal == null && nomeOperador == null) {
             return transferenciaService.listarTodas();
+        } else {
+            return transferenciaService.listarComFiltro(dataInicial, dataFinal, nomeOperador);
         }
     }
 }
